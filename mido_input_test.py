@@ -22,7 +22,7 @@ with mido.open_input('2- LoopBe Internal MIDI 1') as idevice, mido.open_output('
         if msg:
             odevice.send(msg)
             msg.time = int(mido.second2tick(now-last, mid.ticks_per_beat, tempo))
-            now = last
+            last = now
             track.append(msg)
 
     for event in track:
