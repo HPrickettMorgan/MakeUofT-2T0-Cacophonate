@@ -23,7 +23,7 @@ def sort_chords(dicts, chord_tolerance=0.01):
         if(i == len(dicts)-1 or dicts[i+1]["time"] - dicts[i]["time"] >= chord_tolerance):
             all_chords.append(sorted(current_chord, key=lambda x: x["note"]))
             current_chord = []
-    return chain(*dicts)
+    return list(chain(*all_chords))
 
 def stringify_notes(dicts):
     return "".join(map(lambda x: chr(x["note"]), dicts))
